@@ -1,0 +1,15 @@
+- Analisi dei vari file JSON.
+
+- Riconoscimento automatico di una review positiva o negativa.
+
+- Raggruppamento degli utenti in base al loro comportamento sulla piattaforma.
+
+- Raggruppamento automatico dei locali in base a criteri di similitudine data una certa località.
+
+- Classificazione dei locali migliori e peggiori per ogni categoria.
+
+- Locali aperti nelle vicinanze dell'utente.
+
+- Utenti con le recensioni più affidabili (comparando il loro voto alla media dei voti di un determinato locale).
+
+- Migliori recensioni e suggerimenti (tips) di un locale.

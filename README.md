@@ -1,10 +1,12 @@
 ## Analysis of Yelp Open Dataset
 
 _Author: Lorenzo Vainigli_
+
 _Corso di Intelligenza Artificiale a.a. 2019/20, Laurea Magistrale in Informatica_
+
 _University of Bologna_
 
-This repository contains IPython Notebooks to develop a data analysis of the [Yelp Open Dataset](https://www.yelp.com/dataset), 
+This repository contains IPython Notebooks to develop a data analysis of the [Yelp Open Dataset](https://www.yelp.com/dataset). 
 
 ### Resources
 The following files were used in this project.
@@ -158,14 +160,21 @@ The following files were used in this project.
 }
 ```
 
-### Developing
+### Development
 JSON files were examined in order to safisfy these requirements.
 
 1. Analysis of single JSON files.
+
 [business.ipynb](https://github.com/lorenzovngl/ai-project/blob/master/business.ipynb), [review.ipynb](https://github.com/lorenzovngl/ai-project/blob/master/review.ipynb), [user.ipynb](https://github.com/lorenzovngl/ai-project/blob/master/user.ipynb), [tip.ipynb](https://github.com/lorenzovngl/ai-project/blob/master/tip.ipynb).
+
 2. Automatic recognition of a positive or negative review.
+
 [reviews_classification.ipynb](https://github.com/lorenzovngl/ai-project/blob/master/reviews_classification.ipynb)
+
 3. Grouping of users based on their behavior on the platform.
+
 [users_grouping.ipynb](https://github.com/lorenzovngl/ai-project/blob/master/users_grouping.ipynb)
+
 4. Automatic grouping of business based on similarity criteria given a certain location.
+
 [business_grouping.ipynb](https://github.com/lorenzovngl/ai-project/blob/master/business_grouping.ipynb)

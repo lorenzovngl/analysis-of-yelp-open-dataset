@@ -10,7 +10,7 @@ This repository contains IPython Notebooks to develop a data analysis of the [Ye
 The following files were used in this project.
 
 * **business.json**: contains business data including location data, attributes, and categories.
-```json
+```
 {
     // string, 22 character unique string business id
     "business_id": "tnhfDv5Il8EaGSXZGiuQGg",
@@ -64,7 +64,7 @@ The following files were used in this project.
 }
 ```
 * **review.json**: contains full review text data including the user_id that wrote the review and the business_id the review is written for.
-```json
+```
 {
     // string, 22 character unique review id
     "review_id": "zdSx_SD6obEhz9VrW9uAWA",
@@ -87,7 +87,7 @@ The following files were used in this project.
 }
 ```
 * **user.json**: user data including the user's friend mapping and all the metadata associated with the user.
-```json
+```
 {
     // string, 22 character unique user id, maps to the user in user.json
     "user_id": "Ha3iJu77CxlrFm-vQRs_8g",
@@ -143,7 +143,7 @@ The following files were used in this project.
 }
 ```
 * **tip.json**: tips written by a user on a business. Tips are shorter than reviews and tend to convey quick suggestions.
-```json
+```
 {
     // string, text of the tip
     "text": "Secret menu - fried chicken sando is da bombbbbbb Their zapatos are good too.",

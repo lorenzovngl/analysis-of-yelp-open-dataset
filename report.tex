@@ -1,17 +1,34 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+
+\usepackage{biblatex}
+\addbibresource{references.bib}
+
 \title{Analisi di Yelp Open Dataset}
 \author{
         Lorenzo Vainigli\\
-        Corso di Intelligenza Artificiale a.a. 2019/20\\
-        Laurea Magistrale in Informatica\\
-        Università di Bologna
+        \textit{\small Corso di Intelligenza Artificiale a.a. 2019/20}\\
+        \textit{\small Laurea Magistrale in Informatica}\\
+        \textit{\small Università di Bologna}
 }
-
-\documentclass[12pt]{article}
+\date{}
 
 \begin{document}
 \maketitle
 
 \section{Introduzione}
+
+\section{Dati}
+\textit{Yelp Open Dataset} \cite{yelp} è una base di dati che raccoglie informazioni su esercizi commerciali di varie categorie. I dati sono utilizzabili per uso personale, educativo o accademico, sono disponibili in formato JSON e sono divisi in alcuni file:
+\begin{itemize}
+\item \textit{business.json}: contiene le informazioni relative agli esercizi commerciali tra cui ubicazione e categoria.
+\item \textit{review.json}: contiene i testi delle recensioni includendo l'identificativo dell'utente che ha scritto la recensione e l'esercizio commerciale oggetto della recensione.
+\item \textit{user.json}: contiene i dati associati ai singoli utenti, inclusi gli identificativi degli amici.
+\item \textit{tip.json}: contiene dei suggerimenti che gli utenti scrivono a proposito degli esercizi commerciali. Possono essere visti come delle brevissime recensioni.
+\end{itemize}
+Il database contiene anche i file \textit{checkin.json} e \textit{photos.json}, ma non sono stati presi in considerazione per lo sviluppo di questo progetto.
 
 \section{Obiettivi}
 
@@ -21,5 +38,6 @@
 
 \section{Conclusioni}
 
+\printbibliography[title={Riferimenti}]
+
 \end{document}
-This is never printed

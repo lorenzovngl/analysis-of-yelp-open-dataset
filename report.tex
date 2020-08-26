@@ -2,8 +2,9 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage[italian]{babel}
+\usepackage{enumitem}
 
-\usepackage{biblatex}
+\usepackage[backend=bibtex,sorting=none]{biblatex}
 \addbibresource{references.bib}
 
 \title{Analisi di Yelp Open Dataset}
@@ -19,6 +20,7 @@
 \maketitle
 
 \section{Introduzione}
+I file di questo progetto sono disponibili nel repository dell'autore su GitHub \cite{repo}. 
 
 \section{Dati}
 \textit{Yelp Open Dataset} \cite{yelp} è una base di dati che raccoglie informazioni su esercizi commerciali di varie categorie. I dati sono utilizzabili per uso personale, educativo o accademico, sono disponibili in formato JSON e sono divisi in alcuni file:
@@ -31,8 +33,38 @@
 Il database contiene anche i file \textit{checkin.json} e \textit{photos.json}, ma non sono stati presi in considerazione per lo sviluppo di questo progetto.
 
 \section{Obiettivi}
+Lo scopo del progetto prevede l'analisi dei dati al fine di studiare la loro struttura e il loro contenuto, al fine di estrapolare osservazioni interessanti su di essi. Non si tratta solo di aggregare record o trovare valori minimi, massimi o medi, ma di applicare anche tecniche di NLP e machine learning. In partcolare, le finalità del progetto richiedono:
+\begin{enumerate}[label=T\arabic*)]
+\item il riconoscimento automatico di una review positiva o negativa;
+\item il raggruppamento degli utenti in base alle loro preferenze o compor-
+tamento sulla piattaforma;
+\item il raggruppamento automatico dei locali in base a criteri di similitudine data una certa località.
+\end{enumerate}
+A queste, ne sono state aggiunte altre:
+\begin{enumerate}[label=T\arabic*)]
+\setcounter{enumi}{3}
+\item analisi dei singoli file JSON;
+\item classificazione dei locali migliori e peggiori per ogni categoria;
+\item locali aperti nelle vicinanze dell'utente;
+\item utenti con le recensioni più affidabili (comparando il loro voto alla media dei voti di un determinato locale);
+\item migliori recensioni e suggerimenti (tips) per un locale.
+\end{enumerate}
+
+\section{Strumenti}
+Per conseguire gli obiettivi sopra citati i dati sono stati elaborati in Python con l'utilizzo di Jupyter Notebook \cite{jupyter}.
 
 \section{Sviluppo}
+Per ogni obiettivo (o target) T* è stato creato un notebook presente nella cartella \texttt{notebooks}:
+\begin{enumerate}[label=T\arabic*)]
+\item \texttt{reviews\_classification.ipynb};
+\item \texttt{users\_grouping.ipynb};
+\item \texttt{businesses\_grouping.ipynb};
+\item \texttt{business.ipynb}, \texttt{review.ipynb}, \texttt{tip.ipynb}, \texttt{user.ipynb};
+\item \texttt{best\_and\_worst\_businesses.ipynb};
+\item \texttt{closest\_opened\_businesses.ipynb};
+\item \texttt{best\_reviewers.ipynb};
+\item \texttt{best\_business\_tips.ipynb}.
+\end{enumerate}
 
 \section{Risultati}
 

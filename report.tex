@@ -25,10 +25,10 @@ I file di questo progetto sono disponibili nel repository dell'autore su GitHub 
 \section{Dati}
 \textit{Yelp Open Dataset} \cite{yelp} è una base di dati che raccoglie informazioni su esercizi commerciali di varie categorie. I dati sono utilizzabili per uso personale, educativo o accademico, sono disponibili in formato JSON e sono divisi in alcuni file:
 \begin{itemize}
-\item \textit{business.json}: contiene le informazioni relative agli esercizi commerciali tra cui ubicazione e categoria.
-\item \textit{review.json}: contiene i testi delle recensioni includendo l'identificativo dell'utente che ha scritto la recensione e l'esercizio commerciale oggetto della recensione.
-\item \textit{user.json}: contiene i dati associati ai singoli utenti, inclusi gli identificativi degli amici.
-\item \textit{tip.json}: contiene dei suggerimenti che gli utenti scrivono a proposito degli esercizi commerciali. Possono essere visti come delle brevissime recensioni.
+\item \textit{business.json} (153 MB): contiene le informazioni relative agli esercizi commerciali tra cui ubicazione e categoria.
+\item \textit{review.json} (6,33 GB): contiene i testi delle recensioni includendo l'identificativo dell'utente che ha scritto la recensione e l'esercizio commerciale oggetto della recensione.
+\item \textit{user.json} (3,27 GB): contiene i dati associati ai singoli utenti, inclusi gli identificativi degli amici.
+\item \textit{tip.json} (263 MB): contiene dei suggerimenti che gli utenti scrivono a proposito degli esercizi commerciali. Possono essere visti come delle brevissime recensioni.
 \end{itemize}
 Il database contiene anche i file \textit{checkin.json} e \textit{photos.json}, ma non sono stati presi in considerazione per lo sviluppo di questo progetto.
 
@@ -65,9 +65,14 @@ Per ogni obiettivo (o target) T* è stato creato un notebook presente nella cart
 \item \texttt{best\_reviewers.ipynb};
 \item \texttt{best\_business\_tips.ipynb}.
 \end{enumerate}
+\subsection{Caricamento dei dati}
+Per motivi di performance non è stato possibile analizzare tutto il contenuto dei file \textit{review.json} e \textit{user.json}, poiché troppo grandi.
 
 \section{Risultati}
+
 \subsection{Esercizi commerciali}
+Il file \textit{business.json} contiene 209.393 record, ognuno composto da 14 campi: \textit{address}, \textit{attributes}, \textit{business\_id},	\textit{categories}, \textit{city}, \textit{hours}, \textit{is\_open},	\textit{latitude} \textit{longitude}, \textit{name}, \textit{postal\_code}, \textit{review\_count}, \textit{stars} e \textit{state}.
+
 \subsubsection{Migliori e peggiori}
 Per questa classificazione sono stete prese in considerazione il numero di stelle assegnate a ogni esercizio commerciale e il numero di recensioni ricevuto. Si presume che, a partità di stelle, più il numero di recensioni è alto, più questo valore sia affidabile. \newline
 Sono state analizzate quattro delle categorie più diffuse: \textit{Restaurants}, \textit{Shopping}, \textit{Health \& Medical} and \textit{Automotive}.\newline
@@ -76,6 +81,12 @@ Tra i negozi catalogati come \textit{Shopping}, i migliori sono \textbf{Eco-Tint
 \textbf{Bangkok Thai Spa Massage} (Las Vegas, NV), \textbf{Simply Skin Las Vegas} (Las Vegas, NV) e \textbf{Richards Cosmetic Surgery, Med Spa \& Laser Center} (Las Vegas, NV) sono i luoghi migliori per la categoria \textit{Health \& Medical}. Sempre per quanto riguarda questa categoria, i luoghi peggiori sono \textbf{SilverScript Medicare} (Phoenix, AZ), \textbf{Apria Healthcare} (Henderson, NV) e \textbf{OptumCare Primary Care - Deer Valley} (Phoenix, AZ).\newline
 I migliori esercizi commerciali per \textit{Automotive} sono \textbf{Eco-Tint} (Las Vegas, NV), \textbf{Precision Window Tint} (Henderson, NV) e \textbf{DC Auto Luxury Window Tinting} (Las Vegas, NV). I peggiori sono \textbf{Phoenix Car Rental} (Phoenix, AZ), \textbf{LendingTree} (Charlotte, NC) e \textbf{Seller Networks} (Las Vegas, NV).\newline
 Considerando le città, \textbf{Las Vegas} è quella dove si possono trovare gli esercizi commerciali migliori, considerando queste quattro categorie, seguita da \textbf{Phoenix}.
+
+\subsubsection{Categorie}
+Le categorie presenti sono in totale 1.207 e le più diffuse sono \textbf{Restaurants} (13,5\%), \textbf{Shopping} (10,7\%), \textbf{Home Services} (8,2\%), \textbf{Food} (7,7\%), \textbf{Health \& Medical} (6,8\%), \textbf{Beauty \& Spas} (13,5\%), \textbf{Local Services} (5,5\%), \textbf{Automotive} (4,6\%), \textbf{Nightlife} (4,4\%) e \textbf{Event Planning \& Services} (13,5\%).
+
+\subsubsection{Ubicazione}
+Le città in cui si trovano i locali sono 1.306. La maggior parte dei locali si trova a \textbf{Las Vegas} (15\%), seguita da \textbf{Toronto} (10\%), \textbf{Phoenix} (10\%), \textbf{Charlotte} (5\%) e \textbf{Scottsdale} (4\%).
 
 
 

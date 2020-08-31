@@ -1,0 +1,29 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\babel@toc {italian}{}
+\babel@toc {italian}{}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1}Introduzione}{1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2}Dati}{2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3}Obiettivi}{2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4}Strumenti}{3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5}Sviluppo}{3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.1}Caricamento dei dati}{3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6}Risultati}{4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {6.1}Esercizi commerciali}{4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {6.1.1}Migliori e peggiori}{4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {6.1.2}Categorie}{5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {6.1.3}Ubicazione}{5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {6.2}Utenti}{5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {7}Conclusioni}{5}%

@@ -3,6 +3,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[italian]{babel}
 \usepackage{enumitem}
+\usepackage{graphicx}
 
 \usepackage[backend=bibtex,sorting=none]{biblatex}
 \addbibresource{references.bib}
@@ -91,9 +92,27 @@ Le città in cui si trovano i locali sono 1.306. La maggior parte dei locali si 
 Se si effettua il raggruppamento per Stato, allora il 29\% si trova in \textbf{Arizona (AZ)}, il 19\% in \textbf{Nevada (NV)}, il 17\% in \textbf{Ontario (ON)}, l'8\% in \textbf{Ohio (OH)} e l'8\% in \textbf{North Carolina (NC)}. I restanti sono divisi tra altri Stati.
 
 \subsection{Utenti}
-Per questioni di performance durante l'elaborazione sono stati caricati sono i primi 100.000 record del file \textit{user.json}, che è composto dai campi \textit{average\_stars}, \textit{fans}, \textit{friends}, \textit{name}, \textit{review\_count}, \textit{useful}, \textit{user\_id}, e altri campi di minore importanza.
+Per questioni di performance e di limiti di memoria per l'elaborazione sono stati caricati sono i primi 100.000 record del file \textit{user.json}, che è composto dai campi \textit{average\_stars}, \textit{fans}, \textit{friends}, \textit{name}, \textit{review\_count}, \textit{useful}, \textit{user\_id}, e altri campi di minore importanza. \newline
+Per gli utenti è stato ritenuto utile esaminare la distribuzione dei valori per i campi \textit{average\_stars}, \textit{fans} e \textit{review\_count},
 
+\subsubsection{Distribuzione di \textit{average\_stars}}
+Questo campo rappresenta la media delle stelle assegnate alle recensioni del singolo utente e, a differenza di tutti gli altri campi, presenta una distribuzione simile a una gaussiana.
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{report_images/average_stars_distribution.png}
+\caption{Distribuzione dei valori del campo \textit{average\_stars} in termini percentuali.}
+\end{figure}
 
+\subsubsection{Distribuzione di \textit{fans}}
+Il 98,96\% degli utenti presenta un numero di fan tra 0 e 109 e l'81,71\% di questi ha meno di 6 fan. Questi valori portano alla conclusione che la user base di questo dataset è prevalentemente composta da utenti che interagiscono con una piccola cerchia di altri utenti.
+
+\subsubsection{Distribuzione di \textit{review\_count}}
+Questo valore dà una precisa indicazione del contributo che un utente apporta al dataset. Dall'analisi emerge che il 99,25\% degli utenti ha scritto meno di 1032 recensioni, ma è una percentuale plausibile. Molto più interessante è esaminare la segmentazione degli utenti per quanto riguarda coloro che hanno scritto meno di 100 recensioni.
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{report_images/review_count_distribution.png}
+\caption{Distribuzione dei valori del campo \textit{review\_count} per valori tra 0 e 100 in termini percentuali.}
+\end{figure}
 
 \section{Conclusioni}
 

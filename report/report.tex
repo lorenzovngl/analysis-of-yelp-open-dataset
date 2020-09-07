@@ -55,7 +55,7 @@ Il dataset è stato esaminato al fine di costruire un modello predittivo basato 
 I file di questo progetto sono disponibili nel repository dell'autore su GitHub \cite{repo}. 
 
 \section{Dati}
-I dati di \textit{Yelp Open Dataset} sono utilizzabili per uso personale, educativo o accademico, sono disponibili in formato JSON e sono divisi in alcuni file:
+I dati di \textit{Yelp Open Dataset} sono utilizzabili per uso personale, educativo o accademico, sono disponibili in formato \textit{JSON} e sono divisi in alcuni file:
 \begin{itemize}
 \item \textit{business.json} (153 MB): contiene le informazioni relative agli esercizi commerciali tra cui ubicazione e categoria.
 \item \textit{review.json} (6,33 GB): contiene i testi delle recensioni includendo l'identificativo dell'utente che ha scritto la recensione e l'esercizio commerciale oggetto della recensione.
@@ -66,7 +66,7 @@ Il database contiene anche i file \textit{tip.json}, \textit{checkin.json} e \te
 Per motivi di performance non è stato possibile analizzare tutto il contenuto dei file \textit{review.json} e \textit{user.json}, poiché troppo grandi, mentre è stato possibile esaminare \textit{business.json} interamente.
 
 \section{Obiettivi}
-Lo scopo del progetto prevede l'analisi dei dati al fine di studiare la loro struttura e il loro contenuto, al fine di estrapolare osservazioni interessanti su di essi. Non si tratta solo di aggregare record o trovare valori minimi, massimi o medi, ma di applicare anche tecniche di NLP e machine learning. In partcolare, le finalità del progetto richiedono:
+Lo scopo del progetto prevede l'analisi dei dati per studiare la loro struttura e il loro contenuto, al fine di estrapolare osservazioni interessanti su di essi. Non si tratta solo di aggregare record o trovare valori minimi, massimi o medi, ma di applicare anche tecniche di elaborazione del linguggio naturale e machine learning. In partcolare, le finalità del progetto richiedono:
 \begin{enumerate}[label=T\arabic*)]
 \item il riconoscimento automatico di una review positiva o negativa (sezione \ref{sec:reviews}, codice in \texttt{notebooks/reviews\_classification.ipynb});
 \item il raggruppamento degli utenti in base alle loro preferenze o comportamento sulla piattaforma (sezione \ref{sec:users}, codice in \texttt{notebooks/users.ipynb});
@@ -81,41 +81,65 @@ Per conseguire gli obiettivi sopra citati i dati sono stati elaborati in \textit
 Grazie al dataaset \textit{review.json} è stato possibile costruire un modello predittivo basato su una rete neurale.
 
 \subsection{Creazione del modello}
-Il codice del modello è presente nel file \texttt{notebooks/reviews\_classification.ipynb}. \newline
-I valori di input sono stati calcolati applicando il \textit{word embedding} al testo delle recensioni. I valori di output per ogni input sono stati calcolati in base al numero di stelle associato alla recensione e trasformato in un vettore binario per permettere al modello di effettuare una classificazione basata su categorie. \newline
+I valori di input sono stati calcolati applicando il \textit{word embedding} al testo delle recensioni. I valori di output per ogni input sono stati calcolati in base al numero di stelle associato alla recensione e trasformato in un vettore binario per permettere al modello di effettuare una classificazione basata su categorie (es. "4 stelle" è stato codificato con il vettore [0, 0, 0, 1, 0]). \newline
 Dopo numerosi tentativi, provando diverse configurazioni di livelli e parametri diversi, è stata scelta la seguente configurazione:
 \lstinputlisting[language=Python]{code_snippets/nn_config.py}
 
 \subsection{Addestramento e validazione}
-Sono state selezionate le prime 10.000 recensioni, senza alcun criterio di filtraggio, effettuando una divisione 80\%-20\% per costruire, rispettivamente, training set e test set. Per rendere ogni classe ben rappresentata, sono stati calcolati i coefficienti di \textit{class weights}.\newline
-In fase di addestramento è stato aggiunto un \textit{early stopping}. \newline
-I valori di \textit{accuracy} risultanti sono 83,7\% per il training set e   64,0\% per il test set.\newline
+Sono state selezionate le prime 10.000 recensioni, senza alcun criterio di filtraggio, effettuando una divisione 80\%-20\% per costruire, rispettivamente, training set e test set. In fase di addestramento è stato aggiunto un \textit{early stopping}. \newline
+I valori di \textit{accuracy} risultanti sono 79,8\% per il training set e   63,7\% per il test set (Figura \ref{fig:run1}).
+Sarebbe stato molto interessante selezionare 100.000 recensioni anziché solo un decimo di queste, ma non è stato fatto per limiti di capacità computazionali dell'elaboratore.
 
-\subsection{Miglioramento delle performance}
-Considerando che cambiando i parametri o la composizione del modello i risultati non miglioravano in modo significativo, si è scelto di effettuare un filtraggio sui dati eliminando quelli che producevano valori di \textit{loss} troppo alti. L'assunzione dietro a questa scelta sta nel fatto che questi valori di input-output potrebbero non essere molto veritieri.\newline
-Per ogni istanza dei 10.000 record scelti si è calcolato il valore di \textit{loss} e sì è deciso di scartare quelle che presentavano un valore più alto di 2.
-I valori di \textit{accuracy} risultanti dopo questa operazione sono 96,5\% per il training set e 70,6\% per il test set.\newline
-
-\subsection{Risultati finali}
-Di seguito sono riportati dei grafici che mostrano i dati sui quali si può effettuare una valutazione finale sul modello per il riconoscimento automatico di una recensione.
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{images/accuracy_loss_run1.png}
-\caption{Valori di \textit{accuracy} e \textit{loss} per il primo run.}
+\caption{Valori di \textit{accuracy} e \textit{loss} per il primo run, ovvero prima di aver effettuato il filtraggio sui dati.}
+\label{fig:run1}
 \end{figure}
+
+\subsection{Miglioramento delle performance}
+Considerando che cambiando i parametri o la composizione del modello i risultati non miglioravano in modo significativo, si è scelto di effettuare un filtraggio sui dati eliminando quelli che producevano valori di \textit{loss} troppo alti. L'assunzione dietro a questa scelta sta nel fatto che questi valori di input-output potrebbero non essere molto veritieri.\newline
+Per ogni istanza dei 10.000 record scelti si è calcolato il valore di \textit{loss} e si è deciso di scartare quelle che presentavano un valore più alto di 2. \newline
+I valori di \textit{accuracy} risultanti dopo questa operazione sono 88,9\% per il training set e 70,3\% per il test set (Figura \ref{fig:run2}).
+
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{images/accuracy_loss_run2.png}
-\caption{Valori di \textit{accuracy} e \textit{loss} per il secondo run.}
+\caption{Valori di \textit{accuracy} e \textit{loss} per il secondo run, ovvero prima di aver effettuato il filtraggio sui dati dove sono stati eliminati gli esempi con valori di \textit{loss} alta.}
+\label{fig:run2}
 \end{figure}
+
+\subsection{Risultati finali}
+Di seguito sono riportati dei grafici che mostrano i dati sui quali si può effettuare una valutazione finale sul modello per il riconoscimento automatico di una recensione. \newline
+Osservando i grafici mostrati nelle figure \ref{fig:random_sentences_1}, \ref{fig:random_sentences_2}, \ref{fig:random_sentences_3} e \ref{fig:random_sentences_4} possiamo verificare come l'accuratezza del modello sia migliorata.
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{images/sent1.png}
-\includegraphics[width=\textwidth]{images/sent2.png}
-\includegraphics[width=\textwidth]{images/sent3.png}
-\includegraphics[width=\textwidth]{images/sent4.png}
-\caption{Previsioni del modello su alcune frasi casuali.}
+\caption{Questa frase è sicuramente una delle peggiori che si possa scrivere a proposito di un locale. Al primo run il modello assegnava erroneamente 5 stelle ma con una notevole incertezza, mentre nel secondo run la scelta migliore (1 stella) è nettamente superiore alle altre.}
+\label{fig:random_sentences_1}
 \end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{images/sent2.png}
+\caption{Questa è senza dubbio una frase positiva e anche al primo run si ha una scelta netta per l'opzione 5 stelle, che comunque viene rafforzata ulteriormente nel secondo run. Sarebbe anche stato lecito aspettarsi 4 stelle.}
+\label{fig:random_sentences_2}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{images/sent3.png}
+\caption{Recensione assolutamente positiva. Già con il primo run si ha una scelta chiara, ma con il secondo l'82\% di probabilità è un risultato estremamente corretto.}
+\label{fig:random_sentences_3}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{images/sent4.png}
+\caption{Questa frase è una delle più interessanti poiché rappresenta un equilibrio per cui sarebbero preferibili 3 stelle (poiché si tratta della scelta media). Purtroppo in questo caso il modello non è molto accurato neanche dopo il secondo run, infatti la scelta di attribuire una stella è sicuramente sbagliata.}
+\label{fig:random_sentences_4}
+\end{figure}
+
 
 \section{Raggruppamento degli utenti}
 \label{sec:users}
@@ -162,6 +186,7 @@ Le città in cui si trovano i locali sono 1.306. La maggior parte dei locali si 
 Se si effettua il raggruppamento per Stato, allora il 29\% si trova in \textbf{Arizona (AZ)}, il 19\% in \textbf{Nevada (NV)}, il 17\% in \textbf{Ontario (ON)}, l'8\% in \textbf{Ohio (OH)} e l'8\% in \textbf{North Carolina (NC)}. I restanti sono divisi tra altri Stati.
 
 \section{Conclusioni}
+\textit{Yelp Open Dataset} è sicuramente un valido dataset se si vuole sviluppare progetti di data analysis oppure se si ha bisogno di testare la propria applicazione, ma diventa ancora più interessante in quanto può essere utilizzato, in particolare la parte che raccoglie le recensioni degli utenti, per costruire modelli di elaborazione del linguaggio naturale e di sentiment analysis.
 
 \printbibliography[title={Riferimenti}]
 

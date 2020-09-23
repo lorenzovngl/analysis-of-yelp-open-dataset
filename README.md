@@ -173,7 +173,7 @@ JSON files were examined in order to safisfy these requirements.
 
 3. Grouping of users based on their behavior on the platform.
 
-[users_grouping.ipynb](https://github.com/lorenzovngl/ai-project/blob/master/notebooks/users_grouping.ipynb)
+[user.ipynb](https://github.com/lorenzovngl/ai-project/blob/master/notebooks/user.ipynb)
 
 4. Automatic grouping of business based on similarity criteria given a certain location.
 

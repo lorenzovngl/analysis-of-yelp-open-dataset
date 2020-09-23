@@ -38,7 +38,7 @@ The following files were used in this project.
     "is_open": 1,
     // object, business attributes to values. note: some attribute values might be objects
     "attributes": {
-	    "RestaurantsTakeOut": true,
+        "RestaurantsTakeOut": true,
         "BusinessParking": {
             "garage": false,
             "street": true,
@@ -82,7 +82,7 @@ The following files were used in this project.
     "text": "Great place to hang out after work: the prices are decent, and the ambience is fun. It's a bit loud, but very lively. The staff is friendly, and the food is good. They have a good selection of drinks.",
     // integer, number of useful votes received
     "useful": 0,
-	// integer, number of funny votes received
+    // integer, number of funny votes received
     "funny": 0,
     // integer, number of cool votes received
     "cool": 0
@@ -165,16 +165,16 @@ JSON files were examined in order to safisfy these requirements.
 
 1. Analysis of single JSON files.
 
-[business.ipynb](https://github.com/lorenzovngl/ai-project/blob/master/business.ipynb), [review.ipynb](https://github.com/lorenzovngl/ai-project/blob/master/review.ipynb), [user.ipynb](https://github.com/lorenzovngl/ai-project/blob/master/user.ipynb), [tip.ipynb](https://github.com/lorenzovngl/ai-project/blob/master/tip.ipynb).
+[business.ipynb](https://github.com/lorenzovngl/ai-project/blob/master/notebooks/business.ipynb), [review.ipynb](https://github.com/lorenzovngl/ai-project/blob/master/notebooks/review.ipynb), [user.ipynb](https://github.com/lorenzovngl/ai-project/blob/master/notebooks/user.ipynb), [tip.ipynb](https://github.com/lorenzovngl/ai-project/blob/master/notebooks/tip.ipynb).
 
 2. Automatic recognition of a positive or negative review.
 
-[reviews_classification.ipynb](https://github.com/lorenzovngl/ai-project/blob/master/reviews_classification.ipynb)
+[reviews_classification.ipynb](https://github.com/lorenzovngl/ai-project/blob/master/notebooks/reviews_classification.ipynb)
 
 3. Grouping of users based on their behavior on the platform.
 
-[users_grouping.ipynb](https://github.com/lorenzovngl/ai-project/blob/master/users_grouping.ipynb)
+[users_grouping.ipynb](https://github.com/lorenzovngl/ai-project/blob/master/notebooks/users_grouping.ipynb)
 
 4. Automatic grouping of business based on similarity criteria given a certain location.
 
-[business_grouping.ipynb](https://github.com/lorenzovngl/ai-project/blob/master/business_grouping.ipynb)
+[business_grouping.ipynb](https://github.com/lorenzovngl/ai-project/blob/master/notebooks/business_grouping.ipynb)

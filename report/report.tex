@@ -72,6 +72,8 @@ Lo scopo del progetto prevede l'analisi dei dati per studiare la loro struttura 
 \item il raggruppamento degli utenti in base alle loro preferenze o comportamento sulla piattaforma (sezione \ref{sec:users}, codice in \texttt{notebooks/users.ipynb});
 \item il raggruppamento automatico dei locali in base a criteri di similitudine data una certa località (sezione \ref{sec:businesses}, codice in \texttt{notebooks/businesses.ipynb}).
 \end{enumerate}
+La cartella \texttt{notebooks} contiene altri file in cui vengono effettuate ulteriori analisi del contenuto del dataset.
+
 
 \section{Strumenti}
 Per conseguire gli obiettivi sopra citati i dati sono stati elaborati in \textit{Python} con ampio utilizzo delle librerie \textit{pandas}, \textit{numpy}, \textit{matplotlib} e \textit{tensorflow} sulla piattaforma \textit{Jupyter Notebook}.
@@ -111,6 +113,7 @@ I valori di \textit{accuracy} risultanti dopo questa operazione sono 88,9\% per 
 
 \subsection{Risultati finali}
 Di seguito sono riportati dei grafici che mostrano i dati sui quali si può effettuare una valutazione finale sul modello per il riconoscimento automatico di una recensione. \newline
+Al fine di una classificazione tra positive e negative possiamo valutare come positive le recensioni a cui vengono attribuite 4 o 5 stelle e come negative quelle a cui ne vengono attribuite 1 o 2 stelle. Il caso delle 3 stelle è arbitrario.\newline
 Osservando i grafici mostrati nelle figure \ref{fig:random_sentences_1}, \ref{fig:random_sentences_2}, \ref{fig:random_sentences_3} e \ref{fig:random_sentences_4} possiamo verificare come l'accuratezza del modello sia migliorata.
 \begin{figure}[H]
 \centering

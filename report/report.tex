@@ -80,7 +80,8 @@ Per conseguire gli obiettivi sopra citati i dati sono stati elaborati in \textit
 
 \section{Classificazione delle recensioni}
 \label{sec:reviews}
-Grazie al dataaset \textit{review.json} è stato possibile costruire un modello predittivo basato su una rete neurale.
+Grazie al dataaset \textit{review.json} è stato possibile costruire un modello predittivo basato su una rete neurale. \newline
+Il file \texttt{review\_model\_test.ipynb} contiene uno script per utilizzare la rete neurale già addestrata, in cui l'utente può testare frasi a sua scelta.
 
 \subsection{Creazione del modello}
 I valori di input sono stati calcolati applicando il \textit{word embedding} al testo delle recensioni. I valori di output per ogni input sono stati calcolati in base al numero di stelle associato alla recensione e trasformato in un vettore binario per permettere al modello di effettuare una classificazione basata su categorie (es. "4 stelle" è stato codificato con il vettore [0, 0, 0, 1, 0]). \newline
